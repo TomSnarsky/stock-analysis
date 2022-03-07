@@ -1,10 +1,10 @@
 # VBA Stock Analysis Challenge
 
-##Overview of Project
+## Overview of Project
 
 In this project our goal was to analyze stock data with a view to providing good, evidence-based investment advice to Steve's parents. We started with an Excel spreadsheet full of stock data, and over the course of the lessons we developed a VBA script that produced an analysis of stocks according to their volume and return (first for one stock of special interest to Steve's parents, then for multiple stocks at once). That code, although effective for its purpose, was not as efficient as it could have been (in terms of its runtime especially), so the specific goal of this project was to refactor the existing code for efficiency.
 
-##Results
+## Results
 
 We were able to refactor the code successfully using arrays as a tool for organizing our data. The initial subroutine we built during the lessons, AllStocksAnalysis(), used a variable "ticker" to hold the name of the ticker we were working on in the analysis:
 
@@ -40,15 +40,15 @@ Although there was more memory required to store these values in arrays, the imp
 
 <img width="423" alt="VBA_Challenge_2018" src="https://user-images.githubusercontent.com/99628051/156950973-3e92c678-3b2c-4696-a312-b555d2116ba7.png">
 
-##Summary
+## Summary
 
-###What are the advantages or disadvantages of refactoring code?
+### What are the advantages or disadvantages of refactoring code?
 
 In general, there are many advantages of refactoring code: like any problem-solving process, code writing is unlikely to result in a totally optimal solution the first time, so iterating the solution process by consistently refactoring, reevaluating, revisiting, and rewriting code is a good strategy for ensuring different parts of a complex project are coded as optimally as possible. The resulting gains in efficiency may seem small in the short run -- for example, in our analysis a change from .75 seconds to less than a quarter of a second for the 2017 analysis might not feel like a huge leap -- but when datasets and the algorithms we use to analyze them become more complex, these increases in efficiency could reduce computation time or memory use by several orders of magnitude, in some cases. Moreover, continually revising code gives one the opportunity to freshly ask the question of how well the code serves its intended purpose, and if there are any innovations that could be brought to bear on the code that would help it to fit more harmoniously in the context of a larger project.
 
 Code refactoring is not entirely without disadvantages, however. Refactored code can make tradeoffs in the name of efficiency -- for example, an algorithm can be made more time-efficient by increasing the demands it makes on memory. In addition, refactored code can be broken, such that a function or program under revision can no longer serve its initial purpose until the refactored code is fully debugged. Although good version control via Git or some other platform can usually control the worst fallout from this downside -- you can always go back to the un-refactored, or original, code, and make your edits in a separate branch to as to fiddle and troubleshoot without disturbing the integrity of the whole project -- it can still be a major headache to have to painstakingly debug new code just to get to the same standard of functionality you had attained previously!
 
-###How do these pros and cons apply to refactoring the original VBA script?
+### How do these pros and cons apply to refactoring the original VBA script?
 
 The pros mentioned above bore out very well in the case of our VBA script. As mentioned above, we were able to greatly increase the time efficiency of our subroutine, which could make a major difference in runtime if the algorithm were tasked with running through a very large dataset with terabytes of stock data. In addition, revisiting the subroutine led this programmer to get to ask some questions that he otherwise may have treated as "asked and answered" because the subroutine was working -- for example, instead of hard-coding the tickers that we wanted to analyze, why not create another subroutine that accepts user input of which tickers the user is interested in analyzing? This would produce a whole new set of coding challenges -- how to accept an open number of inputs, how to make an array big enough to store them all, how to validate the input to ensure what the user is typing in are actually valid tickers, etc. -- but the resulting code would greatly increase the flexibility of our analytical tool for Steve and for his parents.
 
